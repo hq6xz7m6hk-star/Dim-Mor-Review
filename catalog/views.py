@@ -18,9 +18,9 @@ def catalog_page(request):
 
         return redirect('/')
 
-    reviews = Review.objects.all()
+    reviews = Review.objects.filter(checked=True)
 
-    # Получаем CSRF токен
+
     csrf_token = get_token(request)
 
     html = '<h1>Отзывы</h1>'
@@ -35,7 +35,8 @@ def catalog_page(request):
 
     html += '<h2>Добавить отзыв</h2>'
     html += '<form method="POST">'
-    # Вставляем токен вручную
+
+
     html += f'<input type="hidden" name="csrfmiddlewaretoken" value="{csrf_token}">'
     html += '<p>Имя: <input type="text" name="name" required></p>'
     html += '<p>Email: <input type="email" name="email" required></p>'
