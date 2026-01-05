@@ -19,3 +19,6 @@ Windows: venv\Scripts\activate macOS / Linux: source venv/bin/activate
 6. Примените миграции python manage.py migrate
 7. Запустите сервер разработки python manage.py runserver После запуска откройте:
 http://127.0.0.1:8000/
+8. Подключите приложение python .\manage.py startapp catalog
+9. Запишите новое приложение в файле settings.txt
+INSTALLED_APPS = ['catalog.apps.CatalogConfig',
